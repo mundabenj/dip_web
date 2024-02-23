@@ -49,8 +49,7 @@ p{
     clear:both;
 }
 .content{
-    /* background-color: cadetblue; */
-    width:85%;
+    width:70%;
     float: left;
     padding: 15px;
 }
@@ -58,11 +57,17 @@ p{
     padding: 15px;
     float: left;
     background-color: rgb(188, 181, 206);
-    width:15%;
+    width:30%;
+}
+
+@media screen and (max-width: 800px) {
+    .content, .side_bar {
+        width: 100%;
+    }
 }
 
 .footer{
-    font-size: 0.6em;
+    font-size: 0.9em;
     text-align: center;
     background-color: azure;
     padding: 5px;
