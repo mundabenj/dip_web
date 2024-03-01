@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css" />
-</head>
+<?php include("templates/header.php"); ?>
 <body>
-    <div class="toplink">
-        <a href="./">Home</a>
-        <a href="">About</a>
-        <a href="project.html">Our Project</a>
-        <a href="">Our Blog</a>
-        <a href="products.html">Our Products</a>
-        <div class="toplink_right">
-            <a href="signup.html">Sign Up</a>
-            <a href="">Sign In</a>
-        </div>
-    </div>
+<?php include("templates/nav.php"); ?>
 <div class="header">
     <h1>Header</h1>
 </div>
@@ -69,8 +52,4 @@
         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
     </div>
 </div>
-<div class="footer">
-    Copyright &copy; DBIT 2024
-</div>
-</body>
-</html>
+<?php include("templates/footer.php"); ?>
