@@ -45,7 +45,84 @@
     document.write(fname);
 
 </script>
+<br>
+<br>
 
+<?php
+// indexed array (numeric array)
+$arr = array(34, 76, 89, 56, 'Alex', 'Peter', '2024-03-08');
+print '<pre>';
+print_r($arr);
+print '</pre>';
+
+// 
+
+$arr_assoc = array('name' => 'Alex', 'email' => 'aokama@yahoo.com', 'address' => 'Mada');
+
+print '<pre>';
+print_r($arr_assoc);
+print '</pre>';
+?>
+<br>
+<br>
+<?php
+print $arr_assoc['email'];
+?><br>
+<?php
+print $arr[2];
+?>
+<br>
+<?php
+// while loop
+
+$init = 5;
+$s = 5;
+while( $init <= $s){
+    print $init . '<br>'; $init++;
+}
+
+?>
+<br>
+<?php
+// do-while loop
+
+$i = 10;
+do{
+    print $i . '<br>'; $i++;
+}
+while( $i <= $s);
+?>
+<br>
+
+
+<br>
+<select>
+<?php
+    print "<option>".date("d")."</option>";
+for($m=1; $m<=31; $m++){
+    print "<option>$m</option>";
+}
+?>
+</select>
+<select>
+<?php
+// foreach
+$months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Sep', 'Oct', 'Nov', 'Dec'];
+print "<option>".date("M")."</option>";
+foreach($months AS $month){
+    print "<option>$month</option>";
+}
+?>
+</select>
+<select>
+<?php
+$max = date('Y') - 64;
+$min = date('Y') - 18;
+for($y=$min; $y>=$max; $y--){
+    print "<option>$y</option>";
+}
+?>
+</select>
     </div>
     <div class="side_bar">
         <h3>Sign In</h3>
