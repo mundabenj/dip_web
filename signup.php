@@ -7,7 +7,7 @@
 <div class="row">
     <div class="content">
         <h3>Sign Up</h3>
-<form action="" method="post">
+<form action="processes/sign_up.php" method="post">
     <label for="fullname">Full Name: </label><br>
     <input type="text" id="fullname" name="fullname" placeholder="Full Name" autofocus required /><br>
 
@@ -26,16 +26,8 @@
     <br>
     <label for="Address"> Address : </label><br>
 <textarea id="Address" name="Address" placeholder="Enter your Address here" col="30" rows="5"></textarea>
-
     <br>
-
     <input type="submit" name="" value="Save Details" />
-
-
-    <br>
-
-    <br>
-    <br>
     <br>
 
 </form>
