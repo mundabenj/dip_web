@@ -21,7 +21,7 @@ $hash_pass = PASSWORD_HASH($pass, PASSWORD_DEFAULT);
 $insert_qry = "INSERT INTO users(fullname, email, gender, password, address)VALUES('$fname', '$email', '$gender', '$hash_pass', '$Add')";
 
 if($dbConn->query($insert_qry) === TRUE){
-    print "record added successfully";
+    header("Location: ../ViewUsers.php");
 }else{
     print "Process Failed" . $insert_qry . "<br>" . $dbConn->error;
 }

@@ -4,6 +4,7 @@
         <a href="project.php">Our ProjectS</a>
         <a href="">Our Blog</a>
         <a href="products.php">Our Products</a>
+        <a href="ViewUsers.php">View Users</a>
         <div class="toplink_right">
             <a href="signup.php">Sign Up</a>
             <a href="">Sign In</a>
