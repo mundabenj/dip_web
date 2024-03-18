@@ -33,8 +33,8 @@ while($user_row = $users_res->fetch_assoc()){
         <td><?php print $user_row["fullname"]; ?></td>
         <td><?php print $user_row["email"]; ?></td>
         <td><?php print $user_row["gender"]; ?></td>
-        <td><?php print date("d-F-Y", strtotime($user_row["date_updated"])); ?></td>
-        <td>[ Edit ] [ Del ]</td>
+        <td><?php print date("d-F-Y H:i:s", strtotime($user_row["date_updated"])); ?></td>
+        <td>[ <a href="edit_users.php?userId=<?php print $user_row["userId"]; ?>">Edit</a> ] [ Del ]</td>
     </tr>
     <?php
 }
