@@ -19,7 +19,7 @@
 <?php
 require_once "includes/dbConnect.php";
 
-$select_users = "SELECT * FROM users";
+$select_users = "SELECT * FROM `users` LEFT JOIN `genders` USING (`genderId`) ORDER by `fullname` ASC";
 
 $users_res = $dbConn->query($select_users);
 
@@ -36,7 +36,6 @@ while($user_row = $users_res->fetch_assoc()){
         <td><?php print date("d-F-Y", strtotime($user_row["date_updated"])); ?></td>
         <td>[ Edit ] [ Del ]</td>
     </tr>
-    
     <?php
 }
 }else{
@@ -44,12 +43,9 @@ while($user_row = $users_res->fetch_assoc()){
     <tr>
         <td colspan="6">No Data</td>
     </tr>
-
     <?php
 }
 ?>
-
-
 </table>
 
         <h4>Description</h4>
