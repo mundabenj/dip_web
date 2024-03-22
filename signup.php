@@ -19,8 +19,6 @@
     <label for="gender">Gender : </label><br>
     <select id="gender" required name="gender">
         <option value="">--Select Gender--</option>
-
-
 <?php
 require_once "includes/dbConnect.php";
 
@@ -33,10 +31,7 @@ while($gender_row = $gender_res->fetch_assoc()){
 print "<option value='".$gender_row["genderId"]."'>".$gender_row["gender"]."</option>";
 }
 }
-
-
 ?>
-
     </select>
     <br>
     <label for="Address"> Address : </label><br>

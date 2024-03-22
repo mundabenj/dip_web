@@ -34,7 +34,10 @@ while($user_row = $users_res->fetch_assoc()){
         <td><?php print $user_row["email"]; ?></td>
         <td><?php print $user_row["gender"]; ?></td>
         <td><?php print date("d-F-Y H:i:s", strtotime($user_row["date_updated"])); ?></td>
-        <td>[ <a href="edit_users.php?userId=<?php print $user_row["userId"]; ?>">Edit</a> ] [ Del ]</td>
+        <td>
+            [ <a href="edit_users.php?userId=<?php print $user_row["userId"]; ?>">Edit</a> ] 
+            [ <a href="processes/del_users.php?userId=<?php print $user_row["userId"]; ?>" OnClick="return confirm('Are you sure you want to delete <?php print $user_row["fullname"]; ?> from the database?');">Del</a> ]
+        </td>
     </tr>
     <?php
 }
