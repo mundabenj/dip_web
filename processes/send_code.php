@@ -1,22 +1,4 @@
 <?php
-    require_once "../includes/dbConnect.php";
-
-    $fname = mysqli_real_escape_string($dbConn, ucwords(strtolower($_POST["fullname"])));
-    $email = mysqli_real_escape_string($dbConn, strtolower($_POST["email_address"]));
-    $pass = mysqli_real_escape_string($dbConn, $_POST["password"]);
-    $gender = mysqli_real_escape_string($dbConn, $_POST["gender"]);
-    $Add = mysqli_real_escape_string($dbConn, $_POST["Address"]);
-
-    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-        die('Invalid email');
-    }
-
-    $email_exist = "SELECT email FROM users WHERE email='$email' LIMIT 1";
-    $email_exist_res = $dbConn->query($email_exist);
-    if($email_exist_res->num_rows > 0){
-        die('Email aleady exist'); 
-    }
-
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -25,7 +7,8 @@ use PHPMailer\PHPMailer\Exception;
 
 //Load Composer's autoloader
 require '../dd/vendor/autoload.php';
-
+require_once "../includes/dbConnect.php";
+$email = mysqli_real_escape_string($dbConn, strtolower($_POST["email_address"]));
 //Create an instance; passing `true` enables exceptions
 $mail = new PHPMailer(true);
 
@@ -40,8 +23,8 @@ $mail = new PHPMailer(true);
     $mail->Port       = 465;                                    //TCP port to 
 
     //Recipients
-    $mail->setFrom('redbt@cmciris.org', 'Mailer');
-    $mail->addAddress($email, $fname);     //Add a recipient
+    $mail->setFrom('redbt@cmciris.org', 'DBT1305');
+    $mail->addAddress($email, 'Hi Buddy');     //Add a recipient
 
 $secretCode = rand(100000, 999999);
 
@@ -51,16 +34,18 @@ $secretCode = rand(100000, 999999);
     $mail->Body    = '<h3>Welcom to DBT1305</h3>
     
     Your verification code is <h2>' . $secretCode . '</h2>
+
+<a href="http://localhost/diP_Web/ver_code.php" TARGET = "_BLACK" >Click Here</a> to proceed.
+
     ';
 
-    $mail->send();
 
-    $hash_pass = PASSWORD_HASH($pass, PASSWORD_DEFAULT);
-    $insert_qry = "INSERT INTO users(fullname, email, genderId, password, address, secretCode)VALUES('$fname', '$email', '$gender', '$hash_pass', '$Add', '$secretCode')";
+    $update_qry = "UPDATE users SET secretCode = '$secretCode' WHERE email = '$email' LIMIT 1";
 
-    if($dbConn->query($insert_qry) === TRUE){
-        header("Location: ../ViewUsers.php");
+    if($dbConn->query($update_qry) === TRUE){
+        header("Location: ../ver_code.php");
     }else{
-        print "Process Failed" . $insert_qry . "<br>" . $dbConn->error;
+        print "Process Failed" . $update_qry . "<br>" . $dbConn->error;
     }
-?>
+
+    $mail->send();

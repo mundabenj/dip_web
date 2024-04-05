@@ -61,6 +61,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(50) NOT NULL DEFAULT '',
   `genderId` tinyint(1) NOT NULL DEFAULT 0,
   `password` varchar(60) NOT NULL DEFAULT '',
+  `secretCode` int(6) NOT NULL DEFAULT 0,
+  `is_verified` tinyint(1) NOT NULL DEFAULT 0,
   `address` text DEFAULT NULL,
   `date_created` datetime DEFAULT current_timestamp(),
   `date_updated` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
